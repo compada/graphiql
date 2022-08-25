@@ -1,0 +1,24 @@
+<!-- https://github.com/graphql/graphiql/blob/main/packages/graphiql/README.md#usage-umd-bundle-over-cdn-unpkg-jsdelivr-etc -->
+
+<html>
+  <head>
+    <title>GraphiQL</title>
+    <link href="https://unpkg.com/graphiql/graphiql.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/theme/monokai.css" rel="stylesheet" />
+  </head>
+  <body style="margin: 0;">
+    <div id="graphiql" style="height: 100vh;"></div>
+
+    <script crossorigin src="https://unpkg.com/react/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/graphiql/graphiql.min.js"></script>
+    <script>
+      const fetcher = GraphiQL.createFetcher({ url: 'http://localhost:4000/query' });
+
+      ReactDOM.render(
+        React.createElement(GraphiQL, { fetcher: fetcher, editorTheme: "monokai" }),
+        document.getElementById('graphiql'),
+      );
+    </script>
+  </body>
+</html>

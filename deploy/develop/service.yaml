@@ -1,0 +1,9 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: graphiql
+spec:
+  type: LoadBalancer
+  selector:
+    app: graphiql

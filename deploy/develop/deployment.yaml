@@ -20,7 +20,7 @@ spec:
         - name: registry-auth
       containers:
         - name: graphiql
-          image: ghcr.io/compada/graphiql/graphiql:v1.0.0
+          image: ghcr.io/compada/graphiql:v1.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 80

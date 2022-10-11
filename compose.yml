@@ -1,8 +1,20 @@
 services:
-  graphiql:
-    container_name: graphiql
-    image: nginx:1
-    ports:
-      - ${PORT}:80
+  bundle: &bundle
+    stdin_open: true
+    tty: true
+    build:
+      context: .
     volumes:
-      - ./html:/usr/share/nginx/html:ro
+      - bundle:/usr/local/bundle:delegated
+      - .:/usr/src/app:delegated
+    entrypoint: bundle
+    command: check
+
+  graphiql:
+    <<: *bundle
+    ports:
+      - ${PORT}:8080
+    command: exec jekyll serve
+
+volumes:
+  bundle: {}

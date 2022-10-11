@@ -31,3 +31,11 @@ coverage
 /.env
 .env.local
 compose.override.yml
+
+# Jekyll
+/_site/*
+/.jekyll-cache/*
+/.jekyll-metadata
+
+# Ruby
+.bundle

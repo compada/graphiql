@@ -1,0 +1,11 @@
+name: Compada GraphiQL
+exclude:
+  - Dockerfile
+  - compose.yml
+  - README.md
+  - Gemfile*
+host: 0.0.0.0
+port: 8080
+
+auth0_domain: https://dev-rn5wavki.us.auth0.com
+auth0_client_id: mXYOfDVP09PygHlpOPa48i7cfLzVUc0J

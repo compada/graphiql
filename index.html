@@ -24,7 +24,7 @@ title: GraphiQL
         if (isAuthenticated) {
           console.log("> User is authenticated");
           window.history.replaceState({}, document.title, window.location.pathname);
-          updateUI();
+          renderUI();
           return;
         }
 
@@ -47,8 +47,6 @@ title: GraphiQL
         } else {
           await login();
         }
-
-        updateUI();
       };
 
       const login = async () => {
@@ -80,7 +78,7 @@ title: GraphiQL
         auth0.checkSession();
       };
 
-      const updateUI = async () => {
+      const renderUI = async () => {
         const accessToken = await auth0.getTokenSilently();
         const fetcher = GraphiQL.createFetcher({
           url: 'https://api.compada.dev/query',

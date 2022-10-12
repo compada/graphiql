@@ -83,7 +83,7 @@ title: GraphiQL
       const renderUI = async () => {
         const accessToken = await auth0.getTokenSilently();
         const fetcher = GraphiQL.createFetcher({
-          url: 'https://api.compada.dev/query',
+          url: 'https://api.compada.dev',
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

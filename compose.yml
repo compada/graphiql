@@ -13,7 +13,7 @@ services:
   graphiql:
     <<: *bundle
     ports:
-      - ${PORT}:8080
+      - ${PORT}:${PORT}
     command: exec jekyll serve
 
 volumes:

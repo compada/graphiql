@@ -1,4 +1,4 @@
-name: Compada GraphiQL
+title: Compada GraphiQL
 exclude:
   - Dockerfile
   - compose.yml
@@ -9,3 +9,5 @@ port: 8080
 
 auth0_domain: https://dev-rn5wavki.us.auth0.com
 auth0_client_id: mXYOfDVP09PygHlpOPa48i7cfLzVUc0J
+
+api_url: https://api.compada.dev/graphql

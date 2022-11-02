@@ -46,16 +46,19 @@ title: GraphiQL
           }
 
           window.history.replaceState({}, document.title, "/");
+          renderUI();
         } else {
           await login();
         }
       };
 
+      const options = { audience: 'https://api.compada.dev/graphql', scope: "read:all write:all" }
+
       const login = async () => {
         try {
           console.log("Logging in");
 
-          await auth0.loginWithRedirect({redirect_uri: window.location.origin});
+          await auth0.loginWithRedirect({redirect_uri: window.location.origin, ...options});
         } catch (err) {
           console.log("Log in failed", err);
         }
@@ -81,9 +84,11 @@ title: GraphiQL
       };
 
       const renderUI = async () => {
-        const accessToken = await auth0.getTokenSilently();
+        console.log("Rendering UI")
+        const accessToken = await auth0.getTokenSilently(options);
+        console.log("> User is authorized")
         const fetcher = GraphiQL.createFetcher({
-          url: 'https://api.compada.dev/query',
+          url: '{{ site.api_url }}',
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
